@@ -1,16 +1,510 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import * as m from "../../paraglide/messages";
+import getRoutes from "../../routes/routes";
+
+const routes = getRoutes();
 ---
 
 <Layout>
-  <div style="padding: 2rem; max-width: 800px; margin: 0 auto;">
-    <h1>About Page</h1>
-    <p>
-      This is an example of how to create additional pages using the [lang]
-      slug.
-    </p>
-    <p>Current language: {m.current_language({ lang: "test" })}</p>
-    <a href={`/${Astro.params.lang}`}>← Back to Home</a>
+  <div id="container">
+    <div class="animated-bg">
+      <div class="gradient-orb orb-1"></div>
+      <div class="gradient-orb orb-2"></div>
+      <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <main>
+      <section class="content-section">
+        <div class="back-link">
+          <a href={routes.home}>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path
+                d="M12 4l-6 6 6 6"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+            </svg>
+            <span>Back to Home</span>
+          </a>
+        </div>
+
+        <h1 class="page-title">
+          <span class="title-text">About Us</span>
+        </h1>
+
+        <p class="page-subtitle">
+          Discover the power of modern web development with Astro
+        </p>
+
+        <div class="content-grid">
+          <div class="content-card">
+            <div class="card-icon">🚀</div>
+            <h2>Our Mission</h2>
+            <p>
+              We're dedicated to building the fastest, most efficient web
+              experiences possible. Astro combines the best of modern web
+              development with cutting-edge performance optimization.
+            </p>
+          </div>
+
+          <div class="content-card">
+            <div class="card-icon">⚡</div>
+            <h2>Performance First</h2>
+            <p>
+              Zero JavaScript by default means your site loads instantly. We
+              only ship the JavaScript you actually need, when you need it. This
+              results in blazing fast performance scores.
+            </p>
+          </div>
+
+          <div class="content-card">
+            <div class="card-icon">🎨</div>
+            <h2>Flexibility</h2>
+            <p>
+              Bring your own UI framework. Astro works seamlessly with React,
+              Vue, Svelte, Solid, and more. Mix and match components from
+              different frameworks in the same project.
+            </p>
+          </div>
+
+          <div class="content-card">
+            <div class="card-icon">🌍</div>
+            <h2>Global Reach</h2>
+            <p>
+              Built-in internationalization support means you can easily create
+              multilingual sites that reach audiences worldwide. This page
+              demonstrates that capability.
+            </p>
+          </div>
+
+          <div class="content-card">
+            <div class="card-icon">📦</div>
+            <h2>Islands Architecture</h2>
+            <p>
+              Astro pioneered the Islands Architecture, allowing you to build
+              interactive components that hydrate independently, reducing total
+              JavaScript shipped to the browser.
+            </p>
+          </div>
+
+          <div class="content-card">
+            <div class="card-icon">💼</div>
+            <h2>Production Ready</h2>
+            <p>
+              Trusted by thousands of developers and companies worldwide. Astro
+              is battle-tested and ready for production with excellent
+              documentation and community support.
+            </p>
+          </div>
+        </div>
+
+        <div class="stats-section">
+          <div class="stat-card">
+            <div class="stat-number">100K+</div>
+            <div class="stat-label">GitHub Stars</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">1M+</div>
+            <div class="stat-label">NPM Downloads/Month</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">15K+</div>
+            <div class="stat-label">Discord Members</div>
+          </div>
+        </div>
+
+        <div class="cta-section">
+          <h2>Ready to get started?</h2>
+          <div class="cta-buttons">
+            <a href="https://docs.astro.build" class="button button-primary">
+              <span>Read Documentation</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path
+                  d="M3 8h10M9 4l4 4-4 4"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+              </svg>
+            </a>
+            <a href={routes.contact} class="button button-secondary">
+              <span>Contact Us</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path
+                  d="M3 8h10M9 4l4 4-4 4"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
   </div>
 </Layout>
+
+<style>
+  #container {
+    font-family:
+      -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+      sans-serif;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  .animated-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    overflow: hidden;
+  }
+
+  .gradient-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.6;
+    animation: float 20s ease-in-out infinite;
+  }
+
+  .orb-1 {
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    top: -250px;
+    left: -250px;
+    animation-delay: 0s;
+  }
+
+  .orb-2 {
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    bottom: -200px;
+    right: -200px;
+    animation-delay: -7s;
+  }
+
+  .orb-3 {
+    width: 450px;
+    height: 450px;
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-delay: -14s;
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+    33% {
+      transform: translate(30px, -50px) scale(1.1);
+    }
+    66% {
+      transform: translate(-20px, 20px) scale(0.9);
+    }
+  }
+
+  main {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 2rem;
+  }
+
+  .content-section {
+    max-width: 1200px;
+    width: 100%;
+    animation: fadeInUp 1s ease-out;
+  }
+
+  .back-link {
+    margin-bottom: 2rem;
+    animation: fadeInDown 1s ease-out;
+  }
+
+  .back-link a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .back-link a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(-4px);
+  }
+
+  .page-title {
+    font-size: clamp(3rem, 8vw, 5rem);
+    font-weight: 800;
+    margin: 0 0 1rem;
+    text-align: center;
+    animation: fadeInUp 1s ease-out 0.2s backwards;
+  }
+
+  .title-text {
+    background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .page-subtitle {
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    margin-bottom: 4rem;
+    font-weight: 300;
+    animation: fadeInUp 1s ease-out 0.4s backwards;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+    animation: fadeInUp 1s ease-out 0.6s backwards;
+  }
+
+  .content-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+  }
+
+  .content-card:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  }
+
+  .card-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .content-card h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    margin: 0 0 1rem;
+  }
+
+  .content-card p {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .stats-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+    animation: fadeInUp 1s ease-out 0.8s backwards;
+  }
+
+  .stat-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .stat-card:hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+  }
+
+  .cta-section {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 24px;
+    animation: fadeInUp 1s ease-out 1s backwards;
+  }
+
+  .cta-section h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    margin: 0 0 2rem;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent
+    );
+    transition: left 0.5s;
+  }
+
+  .button:hover::before {
+    left: 100%;
+  }
+
+  .button svg {
+    transition: transform 0.3s ease;
+  }
+
+  .button:hover svg {
+    transform: translateX(4px);
+  }
+
+  .button-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+  }
+
+  .button-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+  }
+
+  .button-secondary {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .button-secondary:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    main {
+      padding: 2rem 1rem;
+    }
+
+    .content-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .stats-section {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+    }
+
+    .button {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>

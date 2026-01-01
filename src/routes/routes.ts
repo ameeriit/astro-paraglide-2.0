@@ -14,6 +14,7 @@ const loc = (route: string) => {
 const getRoutes = () => ({
   home: loc(''),
   about: loc('/about'),
+  contact: loc('/contact'),
 });
 
 export default getRoutes;
