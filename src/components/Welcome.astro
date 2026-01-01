@@ -2,6 +2,9 @@
 import astroLogo from "../assets/astro.svg";
 import background from "../assets/background.svg";
 import * as m from "../paraglide/messages";
+import getRoutes from "../routes/routes";
+
+const routes = getRoutes();
 ---
 
 <div id="container">
@@ -21,6 +24,7 @@ import * as m from "../paraglide/messages";
 			</h1>
 			<section id="links">
 				<a class="button" href="https://docs.astro.build">{m.read_docs()}</a>
+				<a class="button" href={routes.about}>Go to About Page</a>
 				<a href="https://astro.build/chat"
 					>{m.join_discord()}
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.14 96.36"
