@@ -11,9 +11,9 @@ export const onRequest = defineMiddleware(async (context, next) => {
   const pathSegments = context.url.pathname.split('/').filter(Boolean);
   const locale = pathSegments[0]; // 'en' or 'de'
 
-  // Set the locale before rendering
+  // Set the locale before rendering (disable reload)
   if (locale === 'en' || locale === 'de') {
-    setLocale(locale as 'en' | 'de');
+    setLocale(locale as 'en' | 'de', { reload: false });
   }
 
   return next();
