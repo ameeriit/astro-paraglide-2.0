@@ -1,0 +1,16 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import * as m from "../../paraglide/messages";
+---
+
+<Layout>
+  <div style="padding: 2rem; max-width: 800px; margin: 0 auto;">
+    <h1>About Page</h1>
+    <p>
+      This is an example of how to create additional pages using the [lang]
+      slug.
+    </p>
+    <p>Current language: {m.current_language({ lang: "test" })}</p>
+    <a href={`/${Astro.params.lang}`}>← Back to Home</a>
+  </div>
+</Layout>

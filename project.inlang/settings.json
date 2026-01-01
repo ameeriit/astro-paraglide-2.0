@@ -11,5 +11,17 @@
   ],
   "plugin.inlang.messageFormat": {
     "pathPattern": "./messages/{locale}.json"
+  },
+  "experimental": {
+    "paraglide": {
+      "strategy": [
+        "url"
+      ],
+      "urlPattern": {
+        "en": "/:path*",
+        "de": "/de/:path*"
+      },
+      "prefixDefault": "always"
+    }
   }
 }
