@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { locales as availableLocales } from "../paraglide/runtime";
+import { locales } from "../paraglide/runtime";
 
 const localeNames: Record<string, string> = {
   en: "English",
@@ -18,18 +18,18 @@ function getPathWithoutLocale(pathname: string, locales: string[]): string {
 }
 
 export default function LanguageSwitcherReact({ pathname }: { pathname: string }) {
-  const localePattern = new RegExp(`^/(${[...availableLocales].join("|")})(/|$)`);
+  const localePattern = new RegExp(`^/(${[...locales].join("|")})(/|$)`);
   const match = pathname.match(localePattern);
-  const currentLang = match ? match[1] : availableLocales[0];
+  const currentLang = match ? match[1] : locales[0];
 
-  const locales = availableLocales.map((code) => ({
+  const availableLocales = locales.map((code) => ({
     code,
     name: localeNames[code] || code,
     path: `/${code}`,
   }));
 
-  const pathWithoutLocale = getPathWithoutLocale(pathname, [...availableLocales]);
-  const currentLocale = locales.find((l) => l.code === currentLang);
+  const pathWithoutLocale = getPathWithoutLocale(pathname, [...locales]);
+  const currentLocale = availableLocales.find((l) => l.code === currentLang);
 
   const [open, setOpen] = useState(false);
   const selectRef = useRef<HTMLDivElement>(null);
@@ -74,7 +74,7 @@ export default function LanguageSwitcherReact({ pathname }: { pathname: string }
           <span className="arrow">▾</span>
         </button>
         <ul className="select-menu" role="listbox" data-menu>
-          {locales.map((locale) => (
+          {availableLocales.map((locale) => (
             <li key={locale.code}>
               <a
                 href={
