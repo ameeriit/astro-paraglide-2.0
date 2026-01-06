@@ -7,5 +7,7 @@
   "whats_new": "What's New in Astro 5.0?",
   "whats_new_description": "From content layers to server islands, click to learn more about the new features and improvements in Astro 5.0",
   "current_language": "Current Language: {lang}",
-  "switch_language": "Switch Language"
+  "switch_language": "Switch Language",
+  "about_title": "About Us",
+  "about_subtitle": "Learn more about Astro and Paraglide"
 }
