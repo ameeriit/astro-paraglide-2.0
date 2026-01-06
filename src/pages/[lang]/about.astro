@@ -1,6 +1,5 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { m } from "../../paraglide/messages";
 import getRoutes from "../../routes/routes";
 import AboutTitle from "../../view/about/AboutTitle";
 
@@ -30,10 +29,6 @@ const routes = getRoutes();
             <span>Back to Home</span>
           </a>
         </div>
-
-        <h1 class="page-title">
-          <span class="title-text">{m.about_title()}</span>
-        </h1>
 
         <AboutTitle client:load />
 
