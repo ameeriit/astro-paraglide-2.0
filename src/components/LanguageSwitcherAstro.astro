@@ -29,7 +29,7 @@ const currentLocale = locales.find((l) => l.code === currentLang);
 ---
 
 <div class="language-select" data-lang-select>
-  <span class="label">{m.current_language({ lang: currentLang })}</span>
+  <span class="label"> <span class="label">Astro Component</span></span>
 
   <div class="select">
     <!-- Trigger -->
@@ -97,7 +97,7 @@ const currentLocale = locales.find((l) => l.code === currentLang);
   .language-select {
     position: fixed;
     top: 20px;
-    right: 20px;
+    left: 20px;
     z-index: 1000;
     font-family: system-ui, sans-serif;
   }
@@ -182,5 +182,9 @@ const currentLocale = locales.find((l) => l.code === currentLang);
     background: #9333ea;
     color: white;
     font-weight: 600;
+  }
+
+  .label {
+    color: white;
   }
 </style>

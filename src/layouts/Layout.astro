@@ -1,5 +1,6 @@
 ---
-import LanguageSwitcher from "../components/LanguageSwitcher.astro";
+import LanguageSwitcherAstro from "../components/LanguageSwitcherAstro.astro";
+import LanguageSwitcherReact from "../components/LanguageSwitcherReact";
 import { getLocale } from "../paraglide/runtime";
 
 const currentLang = getLocale();
@@ -15,7 +16,8 @@ const currentLang = getLocale();
 		<title>Astro + Paraglide</title>
 	</head>
 	<body>
-		<LanguageSwitcher />
+		<LanguageSwitcherAstro />
+		<LanguageSwitcherReact client:load pathname={Astro.url.pathname} />
 		<slot />
 	</body>
 </html>
