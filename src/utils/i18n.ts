@@ -1,10 +1,12 @@
-import { setLocale } from "../paraglide/runtime";
+import { locales, setLocale } from "../paraglide/runtime";
+
+type Locale = (typeof locales)[number];
 
 export function setupLanguageTagHandler() {
   if (!import.meta.env.SSR) {
     const htmlLang = document.documentElement.lang;
-    if (htmlLang === "en" || htmlLang === "de") {
-      setLocale(htmlLang, { reload: false });
+    if (locales.includes(htmlLang as Locale)) {
+      setLocale(htmlLang as Locale, { reload: false });
     }
   }
 }
