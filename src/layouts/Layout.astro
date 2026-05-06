@@ -1,9 +1,9 @@
 ---
-import LanguageSwitcherAstro from "../components/LanguageSwitcherAstro.astro";
-import LanguageSwitcherReact from "../components/LanguageSwitcherReact";
-import { getLocale } from "../paraglide/runtime";
+import LanguageSwitcherAstro from '../components/LanguageSwitcherAstro.astro'
+import LanguageSwitcherReact from '../components/LanguageSwitcherReact'
+import { getLocale } from '../paraglide/runtime'
 
-const currentLang = getLocale();
+const currentLang = getLocale()
 ---
 
 <!doctype html>
@@ -23,9 +23,9 @@ const currentLang = getLocale();
 </html>
 
 <script>
-  import { setupLanguageTagHandler } from "../utils/i18n";
+  import { setupLanguageTagHandler } from '../utils/i18n'
 
-  setupLanguageTagHandler();
+  setupLanguageTagHandler()
 </script>
 
 <style>
